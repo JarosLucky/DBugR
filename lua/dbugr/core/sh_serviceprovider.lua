@@ -87,9 +87,9 @@ function DBugR.SP:CheckName( name )
 	else
 
 		// If the name's not in the cache, compare name against everything in DBUGR_BAD_PREFIXES
-		for _, pref in pairs( DBUGR_BAD_PREFIXES ) do 
+		for _, pref in ipairs( DBUGR_BAD_PREFIXES ) do 
 
-			if ( name:sub( 1, pref:len() ) == pref ) then 
+			if ( string.sub( name, 1, string.len( pref ) ) == pref ) then 
 
 				self.BlacklistCache[ name ] = false;
 				return false;
